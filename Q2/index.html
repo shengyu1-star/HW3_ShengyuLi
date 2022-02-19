@@ -58,12 +58,13 @@
             }
 
             .source {
-                font-size: 17px;
-                font-weight: 600;
+                font-size: 14px;
+                font-weight: 300;
+                color: rgb(158, 157, 154);
             }
 
             .source {
-                max-width: 1000px;
+                max-width: 550px;
                 text-anchor: left;
                 margin: auto;
 
@@ -78,6 +79,11 @@
                 color: gold;
             }
 
+            .highlight2 {
+                font-weight: 600;
+                color: black;
+            }
+
             
         </style>
     </head>
@@ -90,6 +96,7 @@
             <svg width="1050px" height="600px">
     
             </svg>
+            <p class = "source">Note: The income measure used here is <span class = 'highlight2'>disposable income</span>, which is defined as market income plus cash transfers from the government and noncash benefits like food stamps and public housing. It excludes taxes, out-of-pocket medical spending, insurance premiums and other expenses. There have been small changes in the census questionnaire between the two survey dates. </p>
             <p class = "source">Source: Current Population Survey, analysis by Matt Bruenig</p>
         </div>
     </body>
@@ -441,9 +448,8 @@
             .join("path")
             .attr("class", d => d.key)
             .transition()
-            // // .delay(60)
-            // .duration(600)
-            // .ease(d3.easeLinear)
+            .duration(600)
+            .ease(d3.easeSin)
             .attr("fill", d => color(d.key))
             .attr("d", area)
         }
